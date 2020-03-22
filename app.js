@@ -6,23 +6,11 @@ const path = require('path');
 
 
 app.get('/', (req, res) => {
-  var options = {
-    root: path.join(__dirname, 'public'),
-    dotfiles: 'deny',
-    headers: {
-      'x-timestamp': Date.now(),
-      'x-sent': true
-    }
-  }
-  res.sendFile('index.html', options, function (err) {
-    if (err) {
-      next(err)
-    } else {
-      console.log('Sent:', fileName)
-    }
-  })
+  
+  res.sendFile('index.html');
+  
 })
 
-app.listen(process.env.PORT || 3000, function() {
-  console.log("Server started on port 3000.");
+app.listen(3000, function() {
+  console.log("Running on port 3000.");
 });
